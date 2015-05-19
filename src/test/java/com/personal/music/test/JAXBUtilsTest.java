@@ -1,6 +1,6 @@
 package com.personal.music.test;
 
-import com.personal.music.*;
+import com.personal.music.pojo.*;
 import com.personal.music.util.JAXBUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,6 +22,7 @@ public class JAXBUtilsTest {
         pageConfiguration.setName("TamilTunes");
         pageConfiguration.setUrl("http://www.tamiltunes.com");
         pageConfiguration.setPageType(PageType.ALBUM);
+        pageConfigurationList.add(pageConfiguration);
         pageConfigurationList.add(pageConfiguration);
         configuration.setPageConfiguration(pageConfigurationList);
 
@@ -81,7 +82,7 @@ public class JAXBUtilsTest {
         songReaderConfiguration.setSplitterValue("-");
         pageConfiguration.setSongReaderConfiguration(songReaderConfiguration);
 
-        String pageConfigurationXml = JAXBUtils.convertObjectToString(pageConfiguration, PageConfiguration.class);
+        String pageConfigurationXml = JAXBUtils.convertObjectToString(configuration, Configuration.class);
         System.out.println(pageConfigurationXml);
         Assert.assertNotNull(pageConfigurationXml);
     }

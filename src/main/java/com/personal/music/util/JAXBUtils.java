@@ -2,6 +2,8 @@ package com.personal.music.util;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
@@ -20,6 +22,22 @@ public class JAXBUtils {
 
                 jaxbMarshaller.marshal(object, writer);
                 return writer.toString();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+    public static Object convertStringToObject(String xmlString, Class jaxBClass){
+        if(xmlString!=null && jaxBClass!=null){
+            try{
+                JAXBContext jaxbContext = JAXBContext.newInstance(jaxBClass);
+                Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+
+                StringReader reader = new StringReader(xmlString);
+                return unmarshaller.unmarshal(reader);
             }catch (Exception e){
                 e.printStackTrace();
             }

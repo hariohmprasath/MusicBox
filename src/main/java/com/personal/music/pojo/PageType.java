@@ -1,4 +1,4 @@
-package com.personal.music;
+package com.personal.music.pojo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,13 +9,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public enum SplitterType {
-
-    DELIMITER(1), REPLACEMENT(2), REGEX(3);
+public enum PageType {
+    ALBUM(1), PLAYLIST(2);
 
     private int value;
 
-    SplitterType(int value){
+    PageType(int value) {
         this.value = value;
     }
 }

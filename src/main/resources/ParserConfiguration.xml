@@ -1,20 +1,23 @@
-<pageConfiguration>
-    <name>TamilTunes</name>
-    <pageType>ALBUM</pageType>
-    <url>http://www.tamiltunes.com</url>
-    <albumReaderConfigurations>
-        <list>.azindex-1 &gt; li</list>
-        <name>a &gt; span</name>
-        <url>a[href]</url>
-        <songUrl>http://tamiltunes.com/a-e/</songUrl>
-        <splitterType>DELIMITER</splitterType>
-        <splitterValue>-</splitterValue>
-    </albumReaderConfigurations>
-    <songReaderConfiguration>
-        <list>div[content] &gt; ul &gt; li</list>
-        <name>a &gt; text()</name>
-        <url>a &gt; @href</url>
-        <splitterType>DELIMITER</splitterType>
-        <splitterValue>-</splitterValue>
-    </songReaderConfiguration>
-</pageConfiguration>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <pageConfiguration>
+        <name>TamilTunes</name>
+        <pageType>ALBUM</pageType>
+        <url>http://www.tamiltunes.com</url>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/a-e/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>-</splitterValue>
+        </albumReaderConfigurations>
+        <songReaderConfiguration>
+            <list>div[content] &gt; ul &gt; li</list>
+            <name>a &gt; text()</name>
+            <url>a &gt; @href</url>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>-</splitterValue>
+        </songReaderConfiguration>
+    </pageConfiguration>
+</configuration>
