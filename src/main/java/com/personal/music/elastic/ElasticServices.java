@@ -4,8 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,17 +16,28 @@ import java.util.List;
  */
 @Service
 public class ElasticServices {
-    public void getAllAlbums() {
-        try {
-            SearchResponse response = ElasticSearchServer.getElasticSearchClient().prepareSearch(ElasticSearchServer.ALBUM)
-                    .setTypes(ElasticSearchServer.ALBUM_INDEX_TYPE)
-                    .execute().actionGet();
-            if (response != null) {
+    public <T> List<T> getAllDataFromIndexType(String indexName, String indexType, Class<T> objectClass) {
+        if (indexName != null && indexType != null && objectClass != null) {
+            try {
+                SearchResponse response = ElasticSearchServer.getElasticSearchClient().prepareSearch(indexName)
+                        .setTypes(indexType)
+                        .execute()
+                        .actionGet();
+                if (response != null && response.getHits().getTotalHits() > 0) {
+                    ObjectMapper mapper = new ObjectMapper();
+                    SearchHits searchHits = response.getHits();
+                    List<T> responseList = new LinkedList<>();
+                    for (SearchHit searchHit : searchHits.getHits()) {
+                        responseList.add(mapper.readValue(searchHit.source(), objectClass));
+                    }
 
+                    return responseList;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        return null;
     }
 
     public boolean insertBulkData(List<?> listOfData, String indexName, String indexType) {

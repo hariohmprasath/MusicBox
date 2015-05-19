@@ -30,6 +30,11 @@ public class Crawler {
     @Autowired
     private ElasticServices elasticServices;
 
+    public List<AlbumJSON> getAllIndexData(){
+        List<AlbumJSON> albumJSONList = elasticServices.getAllDataFromIndexType(ElasticSearchServer.ALBUM, ElasticSearchServer.ALBUM_INDEX_TYPE, AlbumJSON.class);
+        return albumJSONList;
+    }
+
     public void parseAndIndexData() {
         Object response = JAXBUtils.convertStringToObject(ParserConfigurationUtil.getParserConfigStream(), Configuration.class);
         if (response != null && response instanceof Configuration) {

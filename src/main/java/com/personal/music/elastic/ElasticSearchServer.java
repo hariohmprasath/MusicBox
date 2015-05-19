@@ -11,10 +11,10 @@ import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
  */
 @Service
 public class ElasticSearchServer {
-    public static final String ALBUM = "ALBUM";
-    public static final String PLAYLIST = "PLAYLIST";
-    public static final String ALBUM_INDEX_TYPE = "ALBUM_COLLECTION";
-    public static final String PLAYLIST_INDEX_TYPE = "PLAYLIST_COLLECTION";
+    public static final String ALBUM = "album";
+    public static final String PLAYLIST = "playlist";
+    public static final String ALBUM_INDEX_TYPE = "album_collection";
+    public static final String PLAYLIST_INDEX_TYPE = "playlist_collection";
 
     private static Client elasticSearchClient = null;
 

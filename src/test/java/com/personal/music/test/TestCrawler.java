@@ -20,4 +20,9 @@ public class TestCrawler {
     public void testCrawler() {
         crawler.parseAndIndexData();
     }
+
+    @Test
+    public void testGetAllAlbums(){
+        crawler.getAllIndexData();
+    }
 }
