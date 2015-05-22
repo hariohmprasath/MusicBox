@@ -13,9 +13,9 @@
             <splitterValue>-</splitterValue>
         </albumReaderConfigurations>
         <songReaderConfiguration>
-            <list>div[content] &gt; ul &gt; li</list>
-            <name>a &gt; text()</name>
-            <url>a &gt; @href</url>
+            <list>.content &gt; ul &gt; li</list>
+            <name>a</name>
+            <url>a[href]</url>
             <splitterType>DELIMITER</splitterType>
             <splitterValue>-</splitterValue>
         </songReaderConfiguration>

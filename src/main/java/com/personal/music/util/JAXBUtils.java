@@ -1,5 +1,7 @@
 package com.personal.music.util;
 
+import org.springframework.stereotype.Service;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
@@ -9,10 +11,11 @@ import java.io.StringWriter;
 /**
  * Created by hrajagopal on 5/15/15.
  */
+@Service
 public class JAXBUtils {
-    public static String convertObjectToString(Object object, Class jaxBClass) {
+    public String convertObjectToString(Object object, Class jaxBClass) {
         if (object != null && jaxBClass != null) {
-            try{
+            try {
                 StringWriter writer = new StringWriter();
                 JAXBContext jaxbContext = JAXBContext.newInstance(jaxBClass);
                 Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -22,7 +25,7 @@ public class JAXBUtils {
 
                 jaxbMarshaller.marshal(object, writer);
                 return writer.toString();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -30,15 +33,17 @@ public class JAXBUtils {
         return null;
     }
 
-    public static Object convertStringToObject(String xmlString, Class jaxBClass){
-        if(xmlString!=null && jaxBClass!=null){
-            try{
+    public <T> T convertStringToObject(String xmlString, Class jaxBClass) {
+        if (xmlString != null && jaxBClass != null) {
+            try {
                 JAXBContext jaxbContext = JAXBContext.newInstance(jaxBClass);
                 Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
                 StringReader reader = new StringReader(xmlString);
-                return unmarshaller.unmarshal(reader);
-            }catch (Exception e){
+                Object targetObject = unmarshaller.unmarshal(reader);
+                if (targetObject != null)
+                    return (T) targetObject;
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

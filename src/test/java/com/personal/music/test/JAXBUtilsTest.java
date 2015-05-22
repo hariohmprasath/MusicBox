@@ -13,6 +13,9 @@ import java.util.List;
  */
 
 public class JAXBUtilsTest {
+
+    private JAXBUtils jaxbUtils = new JAXBUtils();
+
     @Test
     public void testJaxBMarshaller() {
         Configuration configuration = new Configuration();
@@ -82,7 +85,7 @@ public class JAXBUtilsTest {
         songReaderConfiguration.setSplitterValue("-");
         pageConfiguration.setSongReaderConfiguration(songReaderConfiguration);
 
-        String pageConfigurationXml = JAXBUtils.convertObjectToString(configuration, Configuration.class);
+        String pageConfigurationXml = jaxbUtils.convertObjectToString(configuration, Configuration.class);
         System.out.println(pageConfigurationXml);
         Assert.assertNotNull(pageConfigurationXml);
     }

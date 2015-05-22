@@ -13,8 +13,18 @@ public class Utils {
             try {
                 path = StringEscapeUtils.unescapeXml(path);
                 Elements listOfElements = element.select(path);
-                if (listOfElements != null && listOfElements.size() == 1)
-                    return listOfElements.first().ownText();
+                if (listOfElements != null && listOfElements.size() == 1) {
+                    if (path.contains("[") && path.contains("]")) {
+                        int startIndex = path.indexOf("[") + 1;
+                        int endIndex = path.indexOf("]", startIndex);
+                        if (startIndex != -1 && endIndex != -1) {
+                            String attributeName = path.substring(startIndex, endIndex);
+                            return listOfElements.first().attr(attributeName);
+                        }
+                    } else
+                        return listOfElements.first().ownText();
+
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

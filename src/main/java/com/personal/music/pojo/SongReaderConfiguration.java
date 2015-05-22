@@ -9,12 +9,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SongReaderConfiguration {
+public class SongReaderConfiguration extends MediaConfiguration {
     private String list;
     private String name;
     private String url;
-    private SplitterType splitterType;
-    private String splitterValue;
 
     public String getList() {
         return list;
@@ -40,19 +38,4 @@ public class SongReaderConfiguration {
         this.url = url;
     }
 
-    public SplitterType getSplitterType() {
-        return splitterType;
-    }
-
-    public void setSplitterType(SplitterType splitterType) {
-        this.splitterType = splitterType;
-    }
-
-    public String getSplitterValue() {
-        return splitterValue;
-    }
-
-    public void setSplitterValue(String splitterValue) {
-        this.splitterValue = splitterValue;
-    }
 }
