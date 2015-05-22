@@ -2,30 +2,63 @@ package com.personal.music.pojo;
 
 import org.apache.solr.client.solrj.beans.Field;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
  * Created by hrajagopal on 5/18/15.
  */
+@XmlRootElement
 public class AlbumJSON {
 
     @Field
-    public static final String STORE_TYPE = "album";
+    @XmlElement
+    public static final String storageType = "album";
 
     @Field
+    private String id;
+
+    @Field
+    @XmlElement
     private String albumName;
+
     @Field
+    @XmlElement
     private String albumUrl;
+    private List<String> songNameList;
+    private List<String> songUrlList;
 
-    @Field("songList")
-    private List<SongJSON> songList;
-
-    public List<SongJSON> getSongList() {
-        return songList;
+    public static String getStorageType() {
+        return storageType;
     }
 
-    public void setSongList(List<SongJSON> songList) {
-        this.songList = songList;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<String> getSongNameList() {
+        return songNameList;
+    }
+
+    @Field("songNameList")
+    @XmlElement(name = "songNameList")
+    public void setSongNameList(List<String> songNameList) {
+        this.songNameList = songNameList;
+    }
+
+    public List<String> getSongUrlList() {
+        return songUrlList;
+    }
+
+    @Field("songUrlList")
+    @XmlElement(name = "songUrlList")
+    public void setSongUrlList(List<String> songUrlList) {
+        this.songUrlList = songUrlList;
     }
 
     public String getAlbumName() {

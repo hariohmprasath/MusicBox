@@ -10,6 +10,7 @@ import com.personal.music.pojo.PageConfiguration;
 import com.personal.music.solr.SolrOperationWrapper;
 import com.personal.music.util.JAXBUtils;
 import com.personal.music.util.ParserConfigurationUtil;
+import com.personal.music.util.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,13 +83,15 @@ public class Crawler {
                         // Save the album collections back to data store
                         if (albumCollection.size() > 0) {
                             logger.info("Saving album information to data store for " + pageConfiguration.getName());
-                            solrOperationWrapper.addObjectsToDataStore(albumCollection);
+                            if (solrOperationWrapper.addObjectsToDataStore(albumCollection))
+                                Utils.logFailureInDataStoreOperation("Error while saving album collection for " + pageConfiguration.getName() + " " + albumCollection.size() + " albums not indexed");
                         }
 
                         // Save the album name index back to data store
                         if (albumIndexNameCollection.size() > 0) {
                             logger.info("Saving album name index information to data store for " + pageConfiguration.getName());
-                            solrOperationWrapper.addPrimitivesToDataStore(albumIndexNameCollection, Crawler.ALBUM_NAME_INDEX);
+                            if (solrOperationWrapper.addPrimitivesToDataStore(albumIndexNameCollection, Crawler.ALBUM_NAME_INDEX))
+                                Utils.logFailureInDataStoreOperation("Error while saving album names for " + pageConfiguration.getName() + " " + albumCollection.size() + " names not indexed");
                         }
                     }
                 } catch (Exception e) {
