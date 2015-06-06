@@ -14,6 +14,35 @@ public class AlbumReaderConfiguration extends MediaConfiguration {
     private String name;
     private String url;
     private String songUrl;
+    private String imageSearchToken;
+    private String wikiSearchToken;
+    private boolean wikiEnabled;
+    private String imageSearchEnabled;
+    private String siteImage;
+
+    public String getSiteImage() {
+        return siteImage;
+    }
+
+    public void setSiteImage(String siteImage) {
+        this.siteImage = siteImage;
+    }
+
+    public boolean isWikiEnabled() {
+        return wikiEnabled;
+    }
+
+    public void setWikiEnabled(boolean wikiEnabled) {
+        this.wikiEnabled = wikiEnabled;
+    }
+
+    public String getImageSearchEnabled() {
+        return imageSearchEnabled;
+    }
+
+    public void setImageSearchEnabled(String imageSearchEnabled) {
+        this.imageSearchEnabled = imageSearchEnabled;
+    }
 
     public String getSongUrl() {
         return songUrl;
@@ -45,5 +74,21 @@ public class AlbumReaderConfiguration extends MediaConfiguration {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getImageSearchToken() {
+        return imageSearchToken;
+    }
+
+    public void setImageSearchToken(String imageSearchToken) {
+        this.imageSearchToken = imageSearchToken;
+    }
+
+    public String getWikiSearchToken() {
+        return wikiSearchToken;
+    }
+
+    public void setWikiSearchToken(String wikiSearchToken) {
+        this.wikiSearchToken = wikiSearchToken;
     }
 }

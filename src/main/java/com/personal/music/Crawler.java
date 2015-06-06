@@ -26,10 +26,11 @@ import java.util.concurrent.*;
  */
 @Service
 public class Crawler {
-
     public static final int TIMEOUT = 1000000000;
     public static final String ALBUM_NAME_INDEX = "ALBUM_NAME_INDEX";
+
     private static final Logger logger = LoggerFactory.getLogger(Crawler.class);
+
     @Autowired
     private SolrOperationWrapper solrOperationWrapper;
     @Autowired
@@ -40,7 +41,7 @@ public class Crawler {
         if (configuration != null) {
 
             // Get the existing album name index information from data store
-            List<String> albumIndexNameCollection = solrOperationWrapper.getPrimitivesFromDataStore(Crawler.ALBUM_NAME_INDEX);
+            List<String> albumIndexNameCollection = solrOperationWrapper.getPrimitivesFromDataStore(Crawler.ALBUM_NAME_INDEX, 0, -1);
             if (albumIndexNameCollection == null)
                 albumIndexNameCollection = new LinkedList<>();
 
@@ -83,14 +84,14 @@ public class Crawler {
                         // Save the album collections back to data store
                         if (albumCollection.size() > 0) {
                             logger.info("Saving album information to data store for " + pageConfiguration.getName());
-                            if (solrOperationWrapper.addObjectsToDataStore(albumCollection))
+                            if (!solrOperationWrapper.addObjectsToDataStore(albumCollection))
                                 Utils.logFailureInDataStoreOperation("Error while saving album collection for " + pageConfiguration.getName() + " " + albumCollection.size() + " albums not indexed");
                         }
 
                         // Save the album name index back to data store
                         if (albumIndexNameCollection.size() > 0) {
                             logger.info("Saving album name index information to data store for " + pageConfiguration.getName());
-                            if (solrOperationWrapper.addPrimitivesToDataStore(albumIndexNameCollection, Crawler.ALBUM_NAME_INDEX))
+                            if (!solrOperationWrapper.addPrimitivesToDataStore(albumIndexNameCollection, Crawler.ALBUM_NAME_INDEX))
                                 Utils.logFailureInDataStoreOperation("Error while saving album names for " + pageConfiguration.getName() + " " + albumCollection.size() + " names not indexed");
                         }
                     }

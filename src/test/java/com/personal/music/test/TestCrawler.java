@@ -21,5 +21,4 @@ public class TestCrawler {
     public void testCrawler() {
         crawler.parseAndIndexData();
     }
-
 }

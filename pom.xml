@@ -170,6 +170,13 @@
         </dependency>
         <!-- ENDS -->
 
+        <dependency>
+            <groupId>net.sf.jtidy</groupId>
+            <artifactId>jtidy</artifactId>
+            <version>r938</version>
+        </dependency>
+
+
     </dependencies>
 
     <!-- Make Maven to use JAVA 1.7 language level -->
