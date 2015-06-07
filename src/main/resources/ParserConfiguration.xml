@@ -12,7 +12,7 @@
             <splitterType>DELIMITER</splitterType>
             <splitterValue>\(</splitterValue>
             <imageSearchToken>tamil movie</imageSearchToken>
-            <wikiSearchToken>true</wikiSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
@@ -23,9 +23,9 @@
             <url>a[href]</url>
             <songUrl>http://tamiltunes.com/f-j/</songUrl>
             <splitterType>DELIMITER</splitterType>
-            <splitterValue>-</splitterValue>
+            <splitterValue>\(</splitterValue>
             <imageSearchToken>tamil movie</imageSearchToken>
-            <wikiSearchToken>true</wikiSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
@@ -36,9 +36,9 @@
             <url>a[href]</url>
             <songUrl>http://tamiltunes.com/k-o/</songUrl>
             <splitterType>DELIMITER</splitterType>
-            <splitterValue>-</splitterValue>
+            <splitterValue>\(</splitterValue>
             <imageSearchToken>tamil movie</imageSearchToken>
-            <wikiSearchToken>true</wikiSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
@@ -49,9 +49,9 @@
             <url>a[href]</url>
             <songUrl>http://tamiltunes.com/p-t/</songUrl>
             <splitterType>DELIMITER</splitterType>
-            <splitterValue>-</splitterValue>
+            <splitterValue>\(</splitterValue>
             <imageSearchToken>tamil movie</imageSearchToken>
-            <wikiSearchToken>true</wikiSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
@@ -62,9 +62,9 @@
             <url>a[href]</url>
             <songUrl>http://tamiltunes.com/u-z/</songUrl>
             <splitterType>DELIMITER</splitterType>
-            <splitterValue>-</splitterValue>
+            <splitterValue>\(</splitterValue>
             <imageSearchToken>tamil movie</imageSearchToken>
-            <wikiSearchToken>true</wikiSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
