@@ -2,6 +2,8 @@ package com.personal.music.pojo;
 
 import org.apache.solr.client.solrj.beans.Field;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
@@ -11,11 +13,12 @@ import java.util.List;
  * Created by hrajagopal on 5/18/15.
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AlbumJSON {
 
     @Field
     @XmlElement
-    public static final String storageType = "album";
+    private String storageType = "album";
 
     @Field
     private String id;
@@ -65,9 +68,10 @@ public class AlbumJSON {
     private String wikiUrl;
 
     private List<String> songNameList;
+
     private List<String> songUrlList;
 
-    public static String getStorageType() {
+    public String getStorageType() {
         return storageType;
     }
 
@@ -124,7 +128,6 @@ public class AlbumJSON {
     }
 
     @Field("songNameList")
-    @XmlElement(name = "songNameList")
     public void setSongNameList(List<String> songNameList) {
         this.songNameList = songNameList;
     }
@@ -134,7 +137,6 @@ public class AlbumJSON {
     }
 
     @Field("songUrlList")
-    @XmlElement(name = "songUrlList")
     public void setSongUrlList(List<String> songUrlList) {
         this.songUrlList = songUrlList;
     }

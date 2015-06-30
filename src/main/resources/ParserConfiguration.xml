@@ -17,7 +17,7 @@
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
         </albumReaderConfigurations>
-        <!--<albumReaderConfigurations>
+        <albumReaderConfigurations>
             <list>.azindex &gt; ul &gt; li</list>
             <name>a &gt; span</name>
             <url>a[href]</url>
@@ -68,7 +68,7 @@
             <wikiEnabled>true</wikiEnabled>
             <imageSearchEnabled>true</imageSearchEnabled>
             <siteImage>.content > p > img[src]</siteImage>
-        </albumReaderConfigurations>-->
+        </albumReaderConfigurations>
         <songReaderConfiguration>
             <list>.content &gt; ul &gt; li</list>
             <name>a</name>

@@ -75,7 +75,7 @@ public class Crawler {
                                     AlbumParserResponse response = x.get();
                                     if (response != null && response.getAlbumCollection() != null && response.getIndexNameCollection() != null) {
                                         albumIndexNameCollection.addAll(response.getIndexNameCollection());
-                                        albumCollection.addAll(response.getAlbumCollection());
+                                        albumCollection.addAll(response.getAlbumCollection());                                        
                                     }
                                 }
                             }
@@ -104,5 +104,3 @@ public class Crawler {
 
     }
 }
-
-

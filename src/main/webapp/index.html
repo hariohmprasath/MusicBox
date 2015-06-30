@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#303F9F">
+
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="elements/elements.html"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+</head>
+<body unresolved class="fullbleed layout vertical">
+
+<template is="dom-bind" id="app">
+    <iron-ajax id="solrRequest"
+               method="GET"
+               headers='{"Accept": "application/json"}'
+               content-type="application/json"
+               on-response="handleResponse"
+               url="rest/searchService/list"></iron-ajax>
+    <div>
+        <paper-drawer-panel id="sideNav">
+            <div drawer>
+                <paper-header-panel>
+                    <paper-toolbar style="background-color: #4285f4;">
+                        <paper-icon-button id="toggleDrawerMenu" icon="menu" on-click="toggle"></paper-icon-button>
+                    </paper-toolbar>
+                    <paper-menu role="menu" style="margin-top:10px">
+                        <div class="layout vertical">
+                            <div class="layout horizontal bottom">
+                                <iron-icon icon="av:album"></iron-icon>
+                                <paper-item role="listitem">Album</paper-item>
+                            </div>
+                            <div class="layout horizontal bottom">
+                                <iron-icon icon="av:library-music"></iron-icon>
+                                <paper-item role="listitem">Songs</paper-item>
+                            </div>
+                            <div class="layout horizontal bottom">
+                                <iron-icon icon="av:queue-music"></iron-icon>
+                                <paper-item role="listitem">Playlist</paper-item>
+                            </div>
+                            <div class="layout horizontal bottom">
+                                <iron-icon icon="info"></iron-icon>
+                                <paper-item role="listitem">About</paper-item>
+                            </div>
+                        </div>
+                    </paper-menu>
+                </paper-header-panel>
+            </div>
+            <div main>
+                <paper-header-panel>
+                    <paper-toolbar style="background-color: #4285f4;">
+                        <paper-icon-button id="toggleMainMenu" icon="menu" class="hide-element"
+                                           on-click="toggle"></paper-icon-button>
+                        <div class="appTitle">Music Box</div>
+                        <iron-icon icon="search" style="margin-left:40px"></iron-icon>
+                        <input type="text" class="searchBox" placeholder="  Search"/>
+                    </paper-toolbar>
+                    <box-list id="boxList"></box-list>
+                    <div id="footer" class="footer">
+                        <polymer-audio-player></polymer-audio-player>
+                    </div>
+                </paper-header-panel>
+            </div>
+        </paper-drawer-panel>
+    </div>
+
+</template>
+
+</body>
+</html>

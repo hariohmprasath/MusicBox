@@ -7,6 +7,8 @@
     <groupId>musicBox</groupId>
     <artifactId>com.personal</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
 
     <properties>
         <spring.version>4.0.3.RELEASE</spring.version>
@@ -14,6 +16,7 @@
         <spring.ws.version>2.1.4.RELEASE</spring.ws.version>
         <lucene-core.version>4.10.2</lucene-core.version>
         <solr-solrj.version>3.1.0</solr-solrj.version>
+        <signpost-core.version>1.2.1.2</signpost-core.version>
     </properties>
 
 
@@ -180,22 +183,18 @@
         <dependency>
             <groupId>oauth.signpost</groupId>
             <artifactId>signpost-core</artifactId>
-            <version>1.2.1.2</version>
+            <version>${signpost-core.version}</version>
         </dependency>
         <dependency>
             <groupId>oauth.signpost</groupId>
             <artifactId>signpost-commonshttp4</artifactId>
-            <version>1.2.1.2</version>
+            <version>${signpost-core.version}</version>
         </dependency>
-        <dependency>
-            <groupId>oauth.signpost</groupId>
-            <artifactId>oauth-signpost</artifactId>
-            <version>1.2.1.2</version>
-        </dependency>
+
         <dependency>
             <groupId>oauth.signpost</groupId>
             <artifactId>signpost-jetty6</artifactId>
-            <version>1.2.1.2</version>
+            <version>${signpost-core.version}</version>
         </dependency>
 
         <dependency>
@@ -209,6 +208,7 @@
 
     <!-- Make Maven to use JAVA 1.7 language level -->
     <build>
+        <finalName>MusicBox</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -217,6 +217,31 @@
                     <configuration>
                         <source>1.7</source>
                         <target>1.7</target>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <archive>
+                            <manifestEntries>
+                                <Specification-Title>MusicBox</Specification-Title>
+                                <Implementation-Version>1.0</Implementation-Version>
+                                <Implementation-Build>1.0</Implementation-Build>
+                                <Built-By>Jenkins</Built-By>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18.1</version>
+                    <configuration>
+                        <skipTests>true</skipTests>
                     </configuration>
                 </plugin>
             </plugins>

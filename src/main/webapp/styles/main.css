@@ -1,0 +1,79 @@
+.searchBox {
+    background: #5d97f5;
+    border: none;
+    box-sizing: border-box;
+    color: #fff;
+    z-index: 1;
+    display: block;
+    font-size: 1.2em;
+    height: 36px;
+    padding-right: 10px;
+    position: absolute;
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.listView {
+    margin-left: 15px;
+}
+
+.docs-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.appTitle {
+    font-family: 'Roboto', 'Noto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 28px;
+    padding-left: 20px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.hide-element {
+    display: none;
+}
+
+.show-element {
+    display: block;
+}
+
+.header-panel {
+    background-color: #4285f4;
+}
+
+iron-icon {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+body {
+    background: #fafafa;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.footer {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+    height: 100px;
+}
+
+paper-item {
+    min-height: 40px;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    vertical-align: bottom;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+paper-item > span {
+    padding-left: 5px;
+}
