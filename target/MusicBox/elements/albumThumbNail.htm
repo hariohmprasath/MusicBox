@@ -1,0 +1,47 @@
+<dom-module id="album-type">
+
+    <template>
+        <style>
+            .card {
+                position: absolute;
+                width: 200px;
+                height: 250px;
+                border-radius: 2px;
+                box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+                background-color: rgb(255, 255, 255);
+                margin-top: 5px;
+            }
+
+            .thumbNail {
+                width: 180px;
+                max-width: 180px;
+                height: auto;
+                max-height: 200px;
+                margin: 10px 10px 0px 10px;
+            }
+
+            .content {
+                margin-left: 10px;
+                padding-top: 2px;
+                white-space: nowrap;
+                width: 200px;
+            }
+
+        </style>
+        <div class="card vertical center">
+            <img src="../images/ironman.jpg" class="thumbNail"/>
+
+            <div class="vertical flex middle center">
+                <div class="content">Iron Man</div>
+            </div>
+
+        </div>
+
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'album-type'
+    })
+</script>

@@ -1,0 +1,6 @@
+com/personal/music/test/TestCrawler.class
+com/personal/music/test/TestWikiHelper.class
+com/personal/music/test/TestSearchService.class
+com/personal/music/test/BaseJUniteTester.class
+com/personal/music/test/JAXBUtilsTest.class
+com/personal/music/test/TestSolrOperationWrapper.class

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <pageConfiguration>
+        <name>TamilTunes</name>
+        <pageType>ALBUM</pageType>
+        <url>http://www.tamiltunes.com</url>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/a-e/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>\(</splitterValue>
+            <imageSearchToken>tamil movie</imageSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
+            <wikiEnabled>true</wikiEnabled>
+            <imageSearchEnabled>true</imageSearchEnabled>
+            <siteImage>.content > p > img[src]</siteImage>
+        </albumReaderConfigurations>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/f-j/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>\(</splitterValue>
+            <imageSearchToken>tamil movie</imageSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
+            <wikiEnabled>true</wikiEnabled>
+            <imageSearchEnabled>true</imageSearchEnabled>
+            <siteImage>.content > p > img[src]</siteImage>
+        </albumReaderConfigurations>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/k-o/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>\(</splitterValue>
+            <imageSearchToken>tamil movie</imageSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
+            <wikiEnabled>true</wikiEnabled>
+            <imageSearchEnabled>true</imageSearchEnabled>
+            <siteImage>.content > p > img[src]</siteImage>
+        </albumReaderConfigurations>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/p-t/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>\(</splitterValue>
+            <imageSearchToken>tamil movie</imageSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
+            <wikiEnabled>true</wikiEnabled>
+            <imageSearchEnabled>true</imageSearchEnabled>
+            <siteImage>.content > p > img[src]</siteImage>
+        </albumReaderConfigurations>
+        <albumReaderConfigurations>
+            <list>.azindex &gt; ul &gt; li</list>
+            <name>a &gt; span</name>
+            <url>a[href]</url>
+            <songUrl>http://tamiltunes.com/u-z/</songUrl>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>\(</splitterValue>
+            <imageSearchToken>tamil movie</imageSearchToken>
+            <wikiSearchToken>film</wikiSearchToken>
+            <wikiEnabled>true</wikiEnabled>
+            <imageSearchEnabled>true</imageSearchEnabled>
+            <siteImage>.content > p > img[src]</siteImage>
+        </albumReaderConfigurations>
+        <songReaderConfiguration>
+            <list>.content &gt; ul &gt; li</list>
+            <name>a</name>
+            <url>a[href]</url>
+            <splitterType>DELIMITER</splitterType>
+            <splitterValue>-</splitterValue>
+        </songReaderConfiguration>
+    </pageConfiguration>
+</configuration>

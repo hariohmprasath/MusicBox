@@ -1,0 +1,73 @@
+<dom-module id="box-list">
+    <style>
+        .material-card {
+            position: relative;
+            display: inline-block;
+            width: 220px;
+            height: 240px;
+            vertical-align: top;
+            background-color: #fff;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+            margin: 8px;
+        }
+
+        .material-image {
+            background-repeat: round;
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 180px;
+            max-height: 160px;
+            display: block;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .content {
+            text-align: center;
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-top: 15px;
+            overflow: hidden;
+            font-weight: 400;
+            font-size: 18px;
+            white-space: inherit;
+        }
+
+        .link-symbol {
+            cursor: pointer;
+            cursor: hand;
+        }
+    </style>
+
+    <template>
+        <template is="dom-repeat" items="{{albums}}">
+            <div class="material-card link-symbol" on-click="handleAlbumSelectionClick">
+                <div><img class="material-image" src="{{item.thumbNail}}" on-error="handleErrorResponse"/></div>
+                <div class="content">{{item.albumName}}</div>
+            </div>
+        </template>
+
+        <paper-dialog id="albumView">
+            <h2>{{currentAlbum.name}}</h2>
+        </paper-dialog>
+    </template>
+
+    <script>
+        Polymer({
+            ready: function () {
+
+            },
+            properties: {
+                albums: [],
+                currentAlbum: {}
+            },
+            handleAlbumSelectionClick: function (e) {
+                this.currentAlbum = e.model.__data__.item;
+                console.log('Click happened here: ' + e.model.__data__.item.id);
+            },
+            handleErrorResponse: function (e) {
+                e.target.src = "images/dvd_disc1.png";
+            }
+        })
+    </script>
+</dom-module>
