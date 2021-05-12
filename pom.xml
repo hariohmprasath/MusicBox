@@ -15,7 +15,7 @@
         <logback.version>1.1.2</logback.version>
         <spring.ws.version>2.1.4.RELEASE</spring.ws.version>
         <lucene-core.version>4.10.2</lucene-core.version>
-        <solr-solrj.version>3.1.0</solr-solrj.version>
+        <solr-solrj.version>8.8.2</solr-solrj.version>
         <signpost-core.version>1.2.1.2</signpost-core.version>
     </properties>
 
