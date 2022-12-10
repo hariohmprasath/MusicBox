@@ -11,7 +11,7 @@
 
 
     <properties>
-        <spring.version>4.0.3.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
         <logback.version>1.1.2</logback.version>
         <spring.ws.version>2.1.4.RELEASE</spring.ws.version>
         <lucene-core.version>4.10.2</lucene-core.version>
